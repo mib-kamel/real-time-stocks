@@ -1,6 +1,6 @@
 # RealTimeStocks
 
-A real-time stock price monitoring application built with Angular 17.
+A real-time stock price monitoring application built with Angular 19.
 
 ## Features
 - Real-time stock price updates
@@ -11,7 +11,7 @@ A real-time stock price monitoring application built with Angular 17.
 
 ## Prerequisites
 - Node.js (version 18 or higher)
-- Angular CLI (version 17 or higher)
+- Angular CLI (version 19 or higher)
 
 ## Installation
 
