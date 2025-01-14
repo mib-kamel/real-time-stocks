@@ -1,0 +1,135 @@
+$primary-color: #007bff;
+$primary-hover: #0056b3;
+$disabled-color: #ddd;
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 40px;
+
+    .stock {
+        border: 1px solid $disabled-color;
+        padding: 30px;
+        border-radius: 8px;
+        width: calc(16.666% - 100px);
+        flex-grow: 1;
+        max-width: 300px;
+        min-width: 120px;
+        background-color: white;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        height: 300px;
+        justify-content: center;
+        align-items: center;
+
+        &.stock-up {
+            background-color: #d4edda;
+        }
+
+        &.stock-down {
+            background-color: #f8d7da;
+        }
+
+        &.disabled {
+            opacity: 0.5;
+        }
+
+        h3 {
+            font-size: 1rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .stock-body {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            p {
+                font-size: 0.85rem;
+                width: 100%;
+                text-align: center;
+                font-weight: 500;
+            }
+
+            button {
+                margin-top: 10px;
+                padding: 8px 12px;
+                border: none;
+                background-color: $primary-color;
+                color: #fff;
+                cursor: pointer;
+                border-radius: 5px;
+
+                &:hover {
+                    background-color: $primary-hover;
+                }
+            }
+        }
+
+        .toggle-button-container {
+            width: 80px;
+            border-radius: 30px;
+            border: 3px solid transparent;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            height: 30px;
+            background-color: #020231;
+
+            &.disabled {
+                background-color: rgb(83, 83, 83);
+                .toggle-circle {
+                    background-color: #020231;
+                    right: auto;
+                    transform: translateX(-28px);
+                }
+
+                span {
+                    color: #ffffff;
+                }
+            }
+
+            .toggle-circle {
+                position: absolute;
+                width: 24px;
+                height: 24px;
+                border-radius: 50%;
+                background-color: #d4edda;
+                right: 0;
+                transform: translateX(0px);
+                transition:
+                    transform 0.3s ease-in-out,
+                    background-color 0.3s ease-in-out;
+            }
+
+            span {
+                display: block;
+                text-align: center;
+                font-weight: 700;
+                text-align: center;
+                font-size: 0.8rem;
+                color: white;
+            }
+        }
+    }
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .stock {
+        flex: 1 1 100%;
+
+        div {
+            display: none; // Hide desktop-specific fields
+        }
+    }
+}

@@ -1,0 +1,32 @@
+<div class="container">
+    @for (stock of stocks; track stock.symbol) {
+    <div class="stock" [class.disabled]="!stock.enabled" [ngClass]="{
+                'stock-up': stock.priceChange === PRICE_CHANGE.UP,
+                'stock-down': stock.priceChange === PRICE_CHANGE.DOWN,
+                'stock-same': stock.priceChange === PRICE_CHANGE.SAME
+             }">
+        <h3>{{ stock.name }} ({{ stock.symbol }})</h3>
+        <div class="stock-body">
+            <p>
+                Price: ${{ stock.price }}
+                @if (stock.priceChange === PRICE_CHANGE.SAME) {-}
+                @if (stock.priceChange === PRICE_CHANGE.UP) {↑}
+                @if (stock.priceChange === PRICE_CHANGE.DOWN) {↓}
+            </p>
+            <p id="daily-high">Daily High: ${{ stock.dayHigh }}</p>
+            <p id="daily-low">Daily Low: ${{ stock.dayLow }}</p>
+
+            <!-- Only show 52-week data for desktop view -->
+            @if (!isMobile) {
+            <p id="weekly-high">52 Week High: ${{ stock.weekHigh }}</p>
+            <p id="weekly-low">52 Week Low: ${{ stock.weekLow }}</p>
+            }
+        </div>
+
+        <div class="toggle-button-container" [class.disabled]="!stock.enabled" (click)="toggleStock(stock.symbol)">
+            <div class="toggle-circle"></div>
+            <span>{{ stock.enabled ? 'ON' : 'OFF' }}</span>
+        </div>
+    </div>
+    }
+</div>
