@@ -1,5 +1,5 @@
 import { TestBed, fakeAsync, tick } from '@angular/core/testing';
-import { StockUpdatesService, PRICE_CHANGE } from './stock-updates.service';
+import { StockUpdatesService } from './stock-updates.service';
 
 describe('StockUpdatesService', () => {
   let service: StockUpdatesService;
