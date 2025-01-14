@@ -10,7 +10,7 @@ A real-time stock price monitoring application built with Angular 19.
 - Visual price movement indicators
 
 ## Prerequisites
-- Node.js (version 18 or higher)
+- Node.js (version 20 or higher)
 - Angular CLI (version 19 or higher)
 
 ## Installation
